@@ -1,0 +1,6 @@
+[submodule "ball-plate-arduino"]
+	path = driver-arduino
+	url = https://github.com/Sellig6792/ball-plate-arduino/
+[submodule "ball-plate"]
+	path = controller-rust
+	url = https://github.com/Sellig6792/ball-plate
