@@ -29,6 +29,7 @@ The project is split into two distinct submodules working together:
 * **Computer Vision Tracking:** High-speed recognition of the ping-pong ball using robust HSV color filtering to maintain reliable tracking under various ambient lighting conditions.
 * **Live Visualization Window:** A dedicated graphical interface displaying the live camera feed with tracking overlays, paired with real-time plots showing the target vs. actual angles of the servomotors.
 * **High-Frequency Control Loop:** Low-latency pipeline ensuring that frame processing and motor adjustments happen fast enough to prevent the ball from falling.
+* **Dynamic Mouse Interaction:** Real-time target control directly from the visualization window (Left-click to queue custom waypoints, Right-click and hold to force the target to follow the mouse dynamically, and Middle-click to instantly clear the queue and reset the target to the center). *(EXPERIMENTAL in branch 'feat/trajectory' in ./controller-rust)*
 * **Optimized Architecture:** Strict separation between high-performance data processing (Rust) and low-level hardware actuation (Arduino via PlatformIO).
 
 ---
