@@ -4,12 +4,19 @@
 
 The system tracks the position of the ball in real-time and adjusts the inclination of the plate using two servomotors to keep it centered.
 
-## 👥 Project Team
-This project was co-developed by:
-* **Cyril Asselborn**
-* **Eléonore Mernier**
-* **Victoria Douchamps**
-* **Gilles Meunier**
+## 👥 Project Team & Roles
+
+* **Gilles Meunier** — *Lead Software Developer & System Designer*
+  * Responsible for the entire codebase (Rust controller & Arduino firmware), architecture design, computer vision integration, and control loop engineering.
+
+* **Victoria Douchamps** — *Project Coordinator, Structural Builder & Team Chef*
+  * Managed project timelines and coordination, co-designed and assembled the physical platform structure, and kept the team energized as the official team cook.
+
+* **Eléonore Mernier** — *Structural Designer, Diagram Artist & QA Tester*
+  * Focused on the design and assembly of the physical platform, created all technical schematics and structural diagrams, and co-led the hardware testing phases.
+
+* **Cyril Asselborn** — *Hardware Manager, Structural Designer & QA Tester*
+  * Handled component procurement and hardware inventory, co-designed the mechanical structure, and co-led the system validation and experimental testing phases.
 
 ---
 
@@ -29,9 +36,10 @@ The project is split into two distinct submodules working together:
 * **Computer Vision Tracking:** High-speed recognition of the ping-pong ball using robust HSV color filtering to maintain reliable tracking under various ambient lighting conditions.
 * **Live Visualization Window:** A dedicated graphical interface displaying the live camera feed with tracking overlays, paired with real-time plots showing the target vs. actual angles of the servomotors.
 * **High-Frequency Control Loop:** Low-latency pipeline ensuring that frame processing and motor adjustments happen fast enough to prevent the ball from falling.
-* **Dynamic Mouse Interaction:** Real-time target control directly from the visualization window (Left-click to queue custom waypoints, Right-click and hold to force the target to follow the mouse dynamically, and Middle-click to instantly clear the queue and reset the target to the center). *(EXPERIMENTAL in branch 'feat/trajectory' in ./controller-rust)*
+* **Dynamic Mouse Interaction:** Real-time target control directly from the visualization window (Left-click to queue custom waypoints, Right-click and hold to force the target to follow the mouse dynamically, and Middle-click to instantly clear the queue and reset the target to the center). *(EXPERIMENTAL in branch 'develop' in `./controller-rust`)*
+* **Automated Unit Testing:** Comprehensive test suites implemented in Rust to validate the core logic, data parsing, and PID algorithm behavior. *(EXPERIMENTAL in branch 'develop')*
+* **PID Parameter Optimizer:** An integrated optimization tool designed to fine-tune PID coefficients using an approximate simulation physics engine. *Note: The simulation engine is currently highly simplified and its results should not be fully relied upon for the real-world physical setup yet.* *(EXPERIMENTAL in branch 'develop')*
 * **Optimized Architecture:** Strict separation between high-performance data processing (Rust) and low-level hardware actuation (Arduino via PlatformIO).
-
 ---
 
 ## 🔧 Installation and Setup
