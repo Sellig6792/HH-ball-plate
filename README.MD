@@ -28,6 +28,21 @@ The project is split into two distinct submodules working together:
 * **`driver-arduino/` (The Executor):** This submodule contains the embedded firmware managed via PlatformIO for the Arduino board. Its role is strictly hardware-based: it listens for commands sent by the Rust application via serial communication and instantly applies the requested angles to the **two servomotors** (X and Y axes).
 
 ---
+## 📐 Schematics & System Diagrams
+
+This section details the physical construction and the logical data flow of the ball-and-plate system.
+
+### 1. Platform & Mechanical Structure
+This diagram illustrates the physical assembly, the pivot system supporting the plate, and how the two servomotors are mechanically linked to control the X and Y tilt axes.
+
+![Platform Mechanical Structure](assets/structure_schema.jpg)
+
+### 2. System Functional Loop
+The flowchart below maps out the real-time operational loop, demonstrating how data travels from the physical world into the software layer and back to the actuators.
+
+![Flowchart Ball & Plate System](assets/flowchart.jpg)
+
+---
 
 ## 🚀 Features
 * **Active Center Stabilization:** Keeps a ping-pong ball perfectly balanced at the center of a dynamic inclined plane using real-time physics calculations.
@@ -37,9 +52,10 @@ The project is split into two distinct submodules working together:
 * **Live Visualization Window:** A dedicated graphical interface displaying the live camera feed with tracking overlays, paired with real-time plots showing the target vs. actual angles of the servomotors.
 * **High-Frequency Control Loop:** Low-latency pipeline ensuring that frame processing and motor adjustments happen fast enough to prevent the ball from falling.
 * **Dynamic Mouse Interaction:** Real-time target control directly from the visualization window (Left-click to queue custom waypoints, Right-click and hold to force the target to follow the mouse dynamically, and Middle-click to instantly clear the queue and reset the target to the center). *(EXPERIMENTAL in branch 'develop' in `./controller-rust`)*
-* **Automated Unit Testing:** Comprehensive test suites implemented in Rust to validate the core logic, data parsing, and PID algorithm behavior. *(EXPERIMENTAL in branch 'develop')*
-* **PID Parameter Optimizer:** An integrated optimization tool designed to fine-tune PID coefficients using an approximate simulation physics engine. *Note: The simulation engine is currently highly simplified and its results should not be fully relied upon for the real-world physical setup yet.* *(EXPERIMENTAL in branch 'develop')*
+* **Automated Unit Testing:** Comprehensive test suites implemented in Rust to validate the core logic, data parsing, and PID algorithm behavior. *(EXPERIMENTAL in branch 'feat/tests')*
+* **PID Parameter Optimizer:** An integrated optimization tool designed to fine-tune PID coefficients using an approximate simulation physics engine. *Note: The simulation engine is currently highly simplified and its results should not be fully relied upon for the real-world physical setup yet.* *(EXPERIMENTAL in branch 'feat/tests')*
 * **Optimized Architecture:** Strict separation between high-performance data processing (Rust) and low-level hardware actuation (Arduino via PlatformIO).
+
 ---
 
 ## 🔧 Installation and Setup
